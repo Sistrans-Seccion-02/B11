@@ -1,4 +1,6 @@
 package uniandes.edu.co.proyecto.model;
+import org.apache.commons.lang3.time.DateFormatUtils;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,8 +21,8 @@ public class ServicioConsumo {
     private Hotel id_Hotel;
     private String Nombre;
     private Integer Capacidad;
-    private Date HorarioApertura;
-    private Date HorarioCierre;
+    private DateFormatUtils HorarioApertura;
+    private DateFormatUtils HorarioCierre;
     private String TipoMusica;
     private String TipoTienda;
     private String TipoComida;
@@ -28,7 +30,7 @@ public class ServicioConsumo {
     public ServicioConsumo()
     {;}
 
-    public ServicioConsumo(Hotel id_Hotel, String Nombre, Integer Capacidad, Date HorarioApertura, Date HorarioCierre, String TipoComida, String TipoMusica, String TipoTienda)
+    public ServicioConsumo(Hotel id_Hotel, String Nombre, Integer Capacidad, DateFormatUtils HorarioApertura, DateFormatUtils HorarioCierre, String TipoComida, String TipoMusica, String TipoTienda)
     {
         this.id_Hotel=id_Hotel;
         this.Capacidad=Capacidad;
@@ -60,12 +62,12 @@ public class ServicioConsumo {
         return Capacidad;
     }
 
-    public Date getHorarioApertura()
+    public DateFormatUtils getHorarioApertura()
     {
         return HorarioApertura;
     }
 
-    public Date getHorarioCierre()
+    public DateFormatUtils getHorarioCierre()
     {
         return HorarioCierre;
     }
@@ -105,12 +107,12 @@ public class ServicioConsumo {
         this.Capacidad=Capacidad;
     }
 
-    public void setHorarioApertura(Date HorarioApertura)
+    public void setHorarioApertura(DateFormatUtils HorarioApertura)
     {
         this.HorarioApertura=HorarioApertura;
     }
 
-    public void setHorarioCierre(Date HorarioCierre)
+    public void setHorarioCierre(DateFormatUtils HorarioCierre)
     {
         this.HorarioCierre=HorarioCierre;
     }

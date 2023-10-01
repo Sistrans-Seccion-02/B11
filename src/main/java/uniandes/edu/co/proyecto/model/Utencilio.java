@@ -1,4 +1,6 @@
 package uniandes.edu.co.proyecto.model;
+import org.apache.commons.lang3.time.DateFormatUtils;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,14 +20,14 @@ public class Utencilio {
     @JoinColumn(name = "id_CuentaHab", referencedColumnName = "id")
     private CuentaHabitacion id_CuentaHab;
     private String Nombre;
-    private Date FechaEntrega;
-    private Date FechaDevolucion;
+    private DateFormatUtils FechaEntrega;
+    private DateFormatUtils FechaDevolucion;
     private Integer Costo;
 
     public Utencilio()
     {;}
 
-    public Utencilio(CuentaHabitacion id_CuentaHab, String Nombre, Date FechaEntrega, Date FechaDevolucion, Integer Costo)
+    public Utencilio(CuentaHabitacion id_CuentaHab, String Nombre, DateFormatUtils FechaEntrega, DateFormatUtils FechaDevolucion, Integer Costo)
     {
         this.Costo=Costo;
         this.FechaDevolucion=FechaDevolucion;
@@ -49,12 +51,12 @@ public class Utencilio {
         return Nombre;
     }
 
-    public Date getFechaEn()
+    public DateFormatUtils getFechaEn()
     {
         return FechaEntrega;
     }
 
-    public Date getFechaDe()
+    public DateFormatUtils getFechaDe()
     {
         return FechaDevolucion;
     }
@@ -74,12 +76,12 @@ public class Utencilio {
         this.id_CuentaHab=id_CuentaHab;
     }
 
-    public void setFechaEn(Date FechaEntrega)
+    public void setFechaEn(DateFormatUtils FechaEntrega)
     {
         this.FechaEntrega=FechaEntrega;
     }
 
-    public void setFechaDe(Date FechaDevolucion)
+    public void setFechaDe(DateFormatUtils FechaDevolucion)
     {
         this.FechaDevolucion=FechaDevolucion;
     }

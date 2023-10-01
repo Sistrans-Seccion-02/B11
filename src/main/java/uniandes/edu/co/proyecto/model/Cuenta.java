@@ -1,4 +1,6 @@
 package uniandes.edu.co.proyecto.model;
+import org.apache.commons.lang3.time.DateFormatUtils;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,15 +20,18 @@ public class Cuenta {
     @JoinColumn(name = "id_Hotel", referencedColumnName = "id_Hotel")
     private Hotel id_Hotel;
     @ManyToOne
-    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
+    @JoinColumns(
+        {@JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente"),
+        @JoinColumn(name = "TipoDoc", referencedColumnName = "TipoDoc")})
     private Cliente id_Cliente;
-    private Date Fecha;
+    private Cliente TipoDoc;
+    private DateFormatUtils Fecha;
     private boolean CargaHabitacion;
 
     public Cuenta()
     {;}
 
-    public Cuenta(ServicioConsumo sc_id, Hotel id_Hotel, Cliente id_cliente, Date Fecha, boolean CargaHabitacion)
+    public Cuenta(ServicioConsumo sc_id, Hotel id_Hotel, Cliente id_cliente, DateFormatUtils Fecha, boolean CargaHabitacion)
     {
         this.sc_id=sc_id;
         this.id_Hotel=id_Hotel;
@@ -50,7 +55,12 @@ public class Cuenta {
         return id_Cliente;
     }
 
-    public Date getFecha()
+    public Cliente getTipoDoc()
+    {
+        return TipoDoc;
+    }
+
+    public DateFormatUtils getFecha()
     {
         return Fecha;
     }
@@ -75,7 +85,12 @@ public class Cuenta {
         this.id_Cliente=id_Cliente;
     }
 
-    public void setFecha(Date Fecha)
+    public void setTipoDoc(Cliente TipoDoc)
+    {
+        this.TipoDoc=TipoDoc;
+    }
+
+    public void setFecha(DateFormatUtils Fecha)
     {
         this.Fecha=Fecha;
     }

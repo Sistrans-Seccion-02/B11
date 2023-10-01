@@ -1,4 +1,6 @@
 package uniandes.edu.co.proyecto.model;
+import org.apache.commons.lang3.time.DateFormatUtils;
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,7 +20,7 @@ public class ReservaHabitacion
         ;
     }
 
-    public ReservaHabitacion(Date CheckIn, Hotel Hotel, Habitacion Habitacion, Date CheckOut, Integer NumPer, String Plan) {
+    public ReservaHabitacion(DateFormatUtils CheckIn, Hotel Hotel, Habitacion Habitacion, DateFormatUtils CheckOut, Integer NumPer, String Plan) {
         super();
         this.pk = new RHPK(CheckIn, Hotel, Habitacion, CheckOut, NumPer, Plan);
     }

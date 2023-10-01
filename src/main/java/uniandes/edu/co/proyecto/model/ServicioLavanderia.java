@@ -21,7 +21,7 @@ public class ServicioLavanderia
 
     public ServicioLavanderia(Hotel id_hotel, CuentaHabitacion id_CH, String Articulo, Integer Costo ) {
         super();
-        this.pk = new SVPK(this.id, id_hotel, id_CH, Articulo, Costo);
+        this.pk = new SVPK(id_hotel, id_CH, Articulo, Costo);
     }
 
     public SVPK getPk() {

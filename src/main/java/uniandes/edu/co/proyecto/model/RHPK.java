@@ -1,5 +1,7 @@
-package uniandes.edu.co.parranderos.modelo;
+package uniandes.edu.co.proyecto.model;
 import java.io.Serializable;
+
+import org.apache.commons.lang3.time.DateFormatUtils;
 
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.EmbeddedId;
@@ -17,8 +19,8 @@ public class RHPK implements Serializable
     @JoinColumn(name="num_Hab", referencedColumnName="num_hab")
     private Habitacion num_hab;
 
-    private Date CheckIn;
-    private Date CheckOut;
+    private DateFormatUtils CheckIn;
+    private DateFormatUtils CheckOut;
     private Integer NumPer;
     private String Plan;
 
@@ -27,15 +29,19 @@ public class RHPK implements Serializable
         super();
     }
 
-    public RHPK(Date CheckIn, Hotel id_Hotel, Habitacion num_hab, Date  CheckOut, Integer NumPer, String Plan)
+    public RHPK(DateFormatUtils checkIn2, Hotel id_Hotel, Habitacion num_hab, DateFormatUtils  checkOut2, Integer NumPer, String Plan)
     {
         super();
         this.id_Hotel=id_Hotel;
         this.num_hab=num_hab;
-        this.CheckIn=CheckIn;
-        this.CheckOut=CheckOut;
+        this.CheckIn=checkIn2;
+        this.CheckOut=checkOut2;
         this.NumPer=NumPer;
         this.Plan=Plan;
+    }
+
+    public RHPK(DateFormatUtils checkIn2, Hotel hotel, Habitacion habitacion, DateFormatUtils checkOut2,
+            Integer numPer2, String plan2) {
     }
 
     public Hotel getHotel()
@@ -48,12 +54,12 @@ public class RHPK implements Serializable
         return num_hab;
     }
 
-    public Date getCheckIn()
+    public DateFormatUtils getCheckIn()
     {
         return CheckIn;
     }
 
-    public Date getCheckOut()
+    public DateFormatUtils getCheckOut()
     {
         return CheckOut;
     }
@@ -78,12 +84,12 @@ public class RHPK implements Serializable
         this.num_hab=num_hab;
     }
 
-    public void setCheckIn(Date CheckIn)
+    public void setCheckIn(DateFormatUtils CheckIn)
     {
         this.CheckIn=CheckIn;
     }
 
-    public void setCheckOut(Date CheckOut)
+    public void setCheckOut(DateFormatUtils CheckOut)
     {
         this.CheckOut=CheckOut;
     }

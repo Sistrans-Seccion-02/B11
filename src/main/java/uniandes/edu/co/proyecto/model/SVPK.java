@@ -1,4 +1,4 @@
-package uniandes.edu.co.parranderos.modelo;
+package uniandes.edu.co.proyecto.model;
 import java.io.Serializable;
 
 import jakarta.persistence.Embeddable;
