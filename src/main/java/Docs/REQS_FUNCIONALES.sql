@@ -14,7 +14,7 @@ WHERE Id = 5;
 DELETE FROM Usuario
 WHERE Id = 8;
 
--- Consultar información sobre un usuario específico
+-- Consultar informaciï¿½n sobre un usuario especï¿½fico
 SELECT *
 FROM Usuario
 WHERE Id = 2;
@@ -44,11 +44,11 @@ UPDATE Personal
 SET Correo = 'empleado25@hotel.com'
 WHERE Id = 6;
 
--- Borrar un usuario existente (asegúrate de que no haya datos asociados)
+-- Borrar un usuario existente (asegï¿½rate de que no haya datos asociados)
 DELETE FROM Personal
 WHERE Id = 4;
 
--- Consultar información sobre un usuario específico
+-- Consultar informaciï¿½n sobre un usuario especï¿½fico
 SELECT *
 FROM Personal
 WHERE Id = 2;
@@ -59,39 +59,39 @@ VALUES (1, 'Hotel Ejemplo', 50.00);
 
 -- Insertar tipos de habitaciones relacionados con el hotel (utilizando el ID del hotel) RF3 y RF4
 INSERT INTO Habitacion (NumHabitacion, TipoHabitacion, Descripcion, Hotel)
-VALUES (101, 'SuitPresidencial', 'Habitación de lujo con vista panorámica', 1);
+VALUES (101, 'SuitPresidencial', 'Habitaciï¿½n de lujo con vista panorï¿½mica', 1);
 
 INSERT INTO Habitacion (NumHabitacion, TipoHabitacion, Descripcion, Hotel)
 VALUES (202, 'Suit', 'Suit con jacuzzi', 1);
 
--- Actualizar un tipo de habitación existente (por ejemplo, cambiar la descripción)
+-- Actualizar un tipo de habitaciï¿½n existente (por ejemplo, cambiar la descripciï¿½n)
 UPDATE Habitacion
-SET Descripcion = 'Suite ejecutiva con vista panorámica'
+SET Descripcion = 'Suite ejecutiva con vista panorï¿½mica'
 WHERE TipoHabitacion = 'Suit';
 
--- Borrar un tipo de habitación (asegúrate de que no haya reservas asociadas)
+-- Borrar un tipo de habitaciï¿½n (asegï¿½rate de que no haya reservas asociadas)
 DELETE FROM Habitacion
 WHERE TipoHabitacion = 'SuitPresidencial';
 
--- Consultar información sobre un tipo de habitación específico
+-- Consultar informaciï¿½n sobre un tipo de habitaciï¿½n especï¿½fico
 SELECT *
 FROM Habitacion
 WHERE TipoHabitacion = 'Suit';
 
--- Crear una nueva instancia de habitación
+-- Crear una nueva instancia de habitaciï¿½n
 INSERT INTO Habitacion (NumHabitacion, TipoHabitacion, Descripcion, Hotel)
 VALUES (601, 'SuitPresidencial', 'Suite presidencial con jacuzzi', 1);
 
--- Actualizar una instancia de habitación existente (por ejemplo, cambiar la descripción)
+-- Actualizar una instancia de habitaciï¿½n existente (por ejemplo, cambiar la descripciï¿½n)
 UPDATE Habitacion
-SET Descripcion = 'Suite presidencial con vista panorámica y jacuzzi'
+SET Descripcion = 'Suite presidencial con vista panorï¿½mica y jacuzzi'
 WHERE NumHabitacion = 601;
 
--- Borrar una instancia de habitación (asegúrate de que no haya reservas asociadas)
+-- Borrar una instancia de habitaciï¿½n (asegï¿½rate de que no haya reservas asociadas)
 DELETE FROM Habitacion
 WHERE NumHabitacion = 601;
 
--- Consultar información sobre una instancia de habitación específica
+-- Consultar informaciï¿½n sobre una instancia de habitaciï¿½n especï¿½fica
 SELECT *
 FROM Habitacion
 WHERE NumHabitacion = 601;
@@ -110,7 +110,7 @@ WHERE Nombre = 'Piscina';
 DELETE FROM ServicioConsumo
 WHERE Nombre = 'Piscina';
 
--- Consultar información sobre el servicio de la piscina
+-- Consultar informaciï¿½n sobre el servicio de la piscina
 SELECT *
 FROM ServicioConsumo
 WHERE Nombre = 'Piscina';
@@ -119,17 +119,17 @@ WHERE Nombre = 'Piscina';
 INSERT INTO ServicioConsumo (Id, Nombre, Capacidad, HorarioApertura, HorarioCierre, Hotel, TipoComida)
 VALUES (3, 'Bar', 50, TIMESTAMP '2023-09-30 12:00:00', TIMESTAMP '2023-09-30 23:00:00', 1, 'No aplicable');
 
--- Agregar productos al menú del Bar (haciendo referencia al servicio "Bar" con ID 3)
+-- Agregar productos al menï¿½ del Bar (haciendo referencia al servicio "Bar" con ID 3)
 INSERT INTO Producto (Nombre, Descripcion, ServicioConsumo, Minibar, Habitacion)
-VALUES ('Cerveza', 'Cerveza fría', 3, 1, 202);
+VALUES ('Cerveza', 'Cerveza frï¿½a', 3, 1, 202);
 
 INSERT INTO Producto (Nombre, Descripcion, ServicioConsumo, Minibar, Habitacion)
-VALUES ('Cóctel Margarita', 'Cóctel refrescante con tequila', 3, 2, 101);
+VALUES ('Cï¿½ctel Margarita', 'Cï¿½ctel refrescante con tequila', 3, 2, 101);
 
 INSERT INTO Producto (Nombre, Descripcion, ServicioConsumo, Minibar, Habitacion)
-VALUES ('Sándwich de Club', 'Sándwich de pollo, tocino y lechuga', 3, 2, 101);
+VALUES ('Sï¿½ndwich de Club', 'Sï¿½ndwich de pollo, tocino y lechuga', 3, 2, 101);
 
--- Crear un nuevo plan de consumo (por ejemplo, plan "Larga Estadía") RF6 y RF7
+-- Crear un nuevo plan de consumo (por ejemplo, plan "Larga Estadï¿½a") RF6 y RF7
 INSERT INTO ReservaHabitacion (Id, CheckIn, CheckOut, NumPersonas, Plan, Habitacion)
 VALUES (1, TO_DATE('2023-10-01', 'YYYY-MM-DD'), TO_DATE('2023-11-30', 'YYYY-MM-DD'), 2, 'Particular', 101);
 
@@ -142,12 +142,12 @@ WHERE Plan = 'Particular';
 DELETE FROM ReservaHabitacion
 WHERE Plan = 'Particular';
 
--- Consultar información sobre un plan de consumo específico (por ejemplo, plan "Larga Estadía")
+-- Consultar informaciï¿½n sobre un plan de consumo especï¿½fico (por ejemplo, plan "Larga Estadï¿½a")
 SELECT *
 FROM ReservaHabitacion
 WHERE Plan = 'Particular';
 
--- Crear una nueva reserva de alojamiento (asegúrate de que la habitación esté disponible)
+-- Crear una nueva reserva de alojamiento (asegï¿½rate de que la habitaciï¿½n estï¿½ disponible)
 INSERT INTO ReservaHabitacion (Id, CheckIn, CheckOut, NumPersonas, Plan, Habitacion)
 VALUES (2, TO_DATE('2023-11-01', 'YYYY-MM-DD'), TO_DATE('2023-11-05', 'YYYY-MM-DD'), 2, 'LargaEstadia', 202);
 
@@ -160,7 +160,7 @@ WHERE Id = 2;
 DELETE FROM ReservaHabitacion
 WHERE Id = 2;
 
--- Consultar información sobre una reserva de alojamiento específica (por ejemplo, reserva con ID 201)
+-- Consultar informaciï¿½n sobre una reserva de alojamiento especï¿½fica (por ejemplo, reserva con ID 201)
 SELECT *
 FROM ReservaHabitacion
 WHERE Id = 2;
@@ -171,41 +171,41 @@ VALUES (301, 1);
 
 -- Inserta un registro en la tabla ServicioLavanderia (por ejemplo) para reservar un servicio
 INSERT INTO ServicioLavanderia (Id, Articulo, Costo, Hotel, CuentaHabitacion)
-VALUES (401, 'Lavandería express', 20.00, 1, 301); 
+VALUES (401, 'Lavanderï¿½a express', 20.00, 1, 301); 
 
--- Actualizar una reserva de un servicio del hotel existente (por ejemplo, cambiar el artículo)
+-- Actualizar una reserva de un servicio del hotel existente (por ejemplo, cambiar el artï¿½culo)
 UPDATE ServicioLavanderia
-SET Articulo = 'Servicio de lavandería rápido'
+SET Articulo = 'Servicio de lavanderï¿½a rï¿½pido'
 WHERE Id = 401;
 
 -- Cancelar una reserva de un servicio del hotel (borrar el registro del servicio)
 DELETE FROM ServicioLavanderia
 WHERE Id = 401;
 
--- Consultar información sobre una reserva de un servicio del hotel específica (por ejemplo, reserva con ID 401)
+-- Consultar informaciï¿½n sobre una reserva de un servicio del hotel especï¿½fica (por ejemplo, reserva con ID 401)
 SELECT *
 FROM ServicioLavanderia
 WHERE Id = 401;
 
 -- RF9
-INSERT INTO Reserva (FechaInicio, Duracion, Costo, Salon, Cliente, cargaHabitacion)
-VALUES (TO_DATE('2023-10-01', 'YYYY-MM-DD'), 5, 200.00, 1, 101, 1);
 
-SELECT * FROM Reserva;
+INSERT INTO ReservaHabitacion (Id, CheckIn, CheckOut, NumPersonas, Plan, Habitacion, LlegadaCliente, SalidaCliente)
+VALUES (1, TO_DATE('2023-09-30',  'YYYY-MM-DD'), TO_DATE('2023-10-05',  'YYYY-MM-DD'), 2, 'TodoIncluido', 123, TO_DATE ('2023-09-30',  'YYYY-MM-DD'), TO_DATE('2023-10-5',  'YYYY-MM-DD'));
 
-UPDATE Reserva
-SET Duracion = 7
-WHERE FechaInicio = TO_DATE('2023-10-01', 'YYYY-MM-DD');
+UPDATE ReservaHabitacion
+SET LlegadaCliente = DATE '2023-10-01'
+WHERE Id = 1;
 
-DELETE FROM Reserva
-WHERE FechaInicio = TO_DATE('2023-10-01', 'YYYY-MM-DD');
+SELECT * FROM ReservaHabitacion WHERE Id = 1;
+
+DELETE FROM ReservaHabitacion WHERE Id = 1;
 
 -- RF10
 
 INSERT INTO Cuenta (Id, Fecha, ServicioConsumo, cargaHabitacion, FechaSalida)
 VALUES (1, TO_DATE('2023-09-30', 'YYYY-MM-DD'), 3, 101, TO_DATE('2023-10-05', 'YYYY-MM-DD'));
 
--- Supongamos que queremos consultar un consumo específico por su ID.
+-- Supongamos que queremos consultar un consumo especï¿½fico por su ID.
 SELECT * FROM Cuenta WHERE Id = 1;
 
 -- Supongamos que deseamos actualizar la fecha del consumo de servicio con ID igual a 1.
@@ -218,21 +218,30 @@ DELETE FROM Cuenta WHERE Id = 1;
 
 -- RF11
 
-UPDATE Cuenta
-SET FechaSalida = SYSDATE  
+INSERT INTO ReservaHabitacion (Id, CheckIn, CheckOut, NumPersonas, Plan, Habitacion, LlegadaCliente, SalidaCliente)
+VALUES (1, TO_DATE('2023-10-01',  'YYYY-MM-DD'), TO_DATE('2023-10-10',  'YYYY-MM-DD'), 2, 'LargaEstadia', 101, TO_DATE('2023-10-01', 'YYYY-MM-DD') , TO_DATE('2023-10-10',  'YYYY-MM-DD'));
+
+-- Registrar la salida de un cliente
+UPDATE ReservaHabitacion
+SET SalidaCliente = '2023-10-01'
 WHERE Id = 1;
 
-SELECT FechaSalida
-FROM Cuenta
-WHERE Id = 1;  
+-- Actualizar la salida de un cliente
+UPDATE ReservaHabitacion
+SET SalidaCliente = '2023-10-02'
+WHERE Id = 1;
 
-UPDATE Cuenta
-SET FechaSalida = TO_DATE('2023-09-30', 'YYYY-MM-DD')  
-WHERE Id = 1; 
+-- Borrar la salida de un cliente
+UPDATE ReservaHabitacion
+SET SalidaCliente = NULL
+WHERE Id = 1;
 
-UPDATE Cuenta
-SET FechaSalida = NULL
-WHERE Id = 1;  
+-- Consultar la salida de un cliente
+SELECT SalidaCliente
+FROM ReservaHabitacion
+WHERE Id = 1;
+
+
 
 
 

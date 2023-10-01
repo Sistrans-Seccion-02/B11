@@ -64,6 +64,8 @@ CREATE TABLE ReservaHabitacion (
     NumPersonas INT NOT NULL,
     Plan VARCHAR(255) CHECK (Plan IN ('LargaEstadia', 'TiempoCompartido', 'TodoIncluido', 'Particular')),
     Habitacion INT,
+    LlegadaCliente DATE.
+    SalidaCliente DATE,
     FOREIGN KEY (Habitacion) REFERENCES Habitacion(NumHabitacion)
 );
 
@@ -120,11 +122,9 @@ CREATE TABLE Cuenta (
     Fecha DATE,
     ServicioConsumo INT,
     cargaHabitacion INT,
-    FechaSalida DATE,
     FOREIGN KEY (ServicioConsumo) REFERENCES ServicioConsumo(Id),
-    FOREIGN KEY (cargaHabitacion) REFERENCES Habitacion(Id)
+    FOREIGN KEY (cargaHabitacion) REFERENCES Habitacion(Id) 
 );
-
 
 -- Tabla Salon
 CREATE TABLE Salon (
@@ -167,6 +167,5 @@ CREATE TABLE ServicioSpa (
     Salon INT,
     FOREIGN KEY (Salon) REFERENCES Salon(Id)
 );
-
 
 
