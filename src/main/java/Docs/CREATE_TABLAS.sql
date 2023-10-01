@@ -88,7 +88,8 @@ CREATE TABLE ServicioLavanderia (
 -- Tabla Cliente
 CREATE TABLE Cliente (
     Id INT PRIMARY KEY,
-    CuentaGeneral INT
+    CuentaGeneral INT,
+    FOREIGN KEY (CuentaGeneral) REFERENCES Cuenta(Id)
 );
 
 -- Tabla Gimnasio
@@ -118,11 +119,12 @@ CREATE TABLE Cuenta (
     Id INT PRIMARY KEY,
     Fecha DATE,
     ServicioConsumo INT,
-    Cliente INT,
     cargaHabitacion INT,
+    FechaSalida DATE,
     FOREIGN KEY (ServicioConsumo) REFERENCES ServicioConsumo(Id),
-    FOREIGN KEY (Cliente) REFERENCES Cliente(Id)
+    FOREIGN KEY (cargaHabitacion) REFERENCES Habitacion(Id)
 );
+
 
 -- Tabla Salon
 CREATE TABLE Salon (
@@ -157,7 +159,7 @@ CREATE TABLE Utencilio (
     FOREIGN KEY (CuentaHabitacion) REFERENCES CuentaHabitacion(Id)
 );
 
--- Creación de la tabla ServicioSpa
+-- Creaciï¿½n de la tabla ServicioSpa
 CREATE TABLE ServicioSpa (
     NombreServicio VARCHAR(255) PRIMARY KEY,
     Duracion INT NOT NULL,
@@ -166,7 +168,5 @@ CREATE TABLE ServicioSpa (
     FOREIGN KEY (Salon) REFERENCES Salon(Id)
 );
 
-ALTER TABLE Cliente
-ADD CONSTRAINT CuentaGeneral
-FOREIGN KEY (CuentaGeneral) REFERENCES Cuenta(Id);
+
 
