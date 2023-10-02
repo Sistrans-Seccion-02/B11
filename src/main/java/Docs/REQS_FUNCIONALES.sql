@@ -106,6 +106,7 @@ SET HorarioApertura = TIMESTAMP '2023-09-30 10:00:00',
     HorarioCierre = TIMESTAMP '2023-09-30 21:00:00'
 WHERE Nombre = 'Piscina';
 
+
 -- Borrar el servicio de la piscina 
 DELETE FROM ServicioConsumo
 WHERE Nombre = 'Piscina';
