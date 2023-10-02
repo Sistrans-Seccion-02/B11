@@ -10,18 +10,32 @@ import uniandes.edu.co.proyecto.model.Habitacion;
 @Repository
 public interface HabitacionRepository extends JpaRepository<Habitacion, Integer> {
      
-    // Consultar habitación y tipo de habitación por ID
-    Habitacion findById(int id);
+    @Modifying
+    @Transactional
+    @Query(value = "SELECT * FROM Habitacion WHERE num_hab=:id AND id_Hotel=:id_Hotel",nativeQuery = true)
+    Habitacion find(@Param("id")int id,@Param("id_Hotel") Integer id_Hotel);
+    
+    // Actualizar una Habitacion
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE Habitacion SET Descripcion=:Descripcion, TipoHabitacion=:TipoHabitacion WHERE Di=:id AND id_Hotel=:id_Hotel", nativeQuery = true)
+    void updateHabitacion(@Param("id") Integer Di,@Param("id_Hotel") Integer id_Hotel,@Param("Descripcion") String Descripcion,@Param("TipoHabitacion") String TipoHabitacion);
+    
+    // Eliminar una Habitacion
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM Habitacion WHERE Di=:Di AND id_Hotel=:id_Hotel",nativeQuery = true)
+    void delete(@Param("Di") Integer Di, @Param("id_Hotel") Integer id_Hotel);
 
-    // Consultar todos los tipos de habitación y habitaciones
+    // Crea un nueva Habitacioon
+    @Modifying
+    @Transactional
+    @Query(value = "INSERT INTO Habitacion (Di, id_Hotel, Descripcion, TipoHabitacion) VALUES(:id, :id_Hotel, :Descripcion, :TipoHabitacion)",nativeQuery = true)
+    void createHabitacion(@Param("id") Integer Di,@Param("id_Hotel") Integer id_Hotel,@Param("Descripcion") String Descripcion,@Param("TipoHabitacion") String TipoHabitacion);
+    
+    // Consultar todos las Habitaciones
+    @Modifying
+    @Transactional
+    @Query(value="SELECT * FROM Habitacion", nativeQuery = true)
     List<Habitacion> findAll();
-
-    // Registrar un nuevo tipo de habitación y una nueva habitación
-    Habitacion save(Habitacion habitacion);
-
-    // Actualizar un tipo de habitación y una habitación existente
-    Habitacion saveAndFlush(Habitacion habitacion);
-
-    // Eliminar un tipo de habitación y una habitación por ID
-    void deleteById(int id);
 }

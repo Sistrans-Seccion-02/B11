@@ -9,21 +9,32 @@ import uniandes.edu.co.proyecto.model.Reserva;
 @Repository
 public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
     
-    // Consultar reserva de alojamiento por ID
-    Reserva findById(Long id);
-
-    // Consultar todas las reservas de alojamiento
-    List<Reserva> findAll();
-
-    // Registrar una nueva reserva de alojamiento
-    Reserva save(Reserva reservaAlojamiento);
-
-    // Actualizar una reserva de alojamiento existente
-    Reserva saveAndFlush(Reserva reservaAlojamiento);
-
-    // Eliminar una reserva de alojamiento por ID
-    void deleteById(Long id);
+    @Modifying
+    @Transactional
+    @Query(value = "SELECT * FROM Reserva WHERE FechaInicio=:FechaInicio AND Salon=:Salon",nativeQuery = true)
+    Reserva find(@Param("FechaInicio")Date FechaInicio,@Param("Salon") Integer Salon);
     
-    // Consultar las reservas de alojamiento realizadas por un cliente específico
-    List<Reserva> findByCliente(Cliente cliente);
+    // Actualizar una Reserva
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE Reserva SET Duracion=:Duracion, Costo=:Costo, id_Cliente=:id_Cliente, TipoDoc=:TipoDoc WHERE FechaInicio=:FechaInicio AND Salon=Salon", nativeQuery = true)
+    void updateReserva(@Param("FechaInicio") Date FechaInicio,@Param("Duracion") Integer Duracion,  @Param("Costo") Integer Costo, @Param("Salon") Integer Salon, @Param("id_Cliente") Integer id_Cliente,@Param("TipoDoc") String TipoDoc, @Param("cargaHabitacion") boolean cargaHabitacion);
+    
+    // Eliminar una Reserva
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM Reserva WHERE FechaInicio=:FechaInicio AND Salon=:Salon",nativeQuery = true)
+    Reserva delete(@Param("FechaInicio")Date FechaInicio,@Param("Salon") Integer Salon);
+
+    // Crea un nueva Reserva
+    @Modifying
+    @Transactional
+    @Query(value = "INSERT INTO Reserva (FechaInicio, Duracion, Costo, Salon, id_Cliente, TipoDoc, cargaHabitacion) VALUES(:FechaInicio, :Duracion, :Costo, :Salon, :id_Cliente, :TipoDoc, :cargaHabitacion)",nativeQuery = true)
+    void createReserva(@Param("FechaInicio") Date FechaInicio,@Param("Duracion") Integer Duracion,  @Param("Costo") Integer Costo, @Param("Salon") Integer Salon, @Param("id_Cliente") Integer id_Cliente,@Param("TipoDoc") String TipoDoc, @Param("cargaHabitacion") boolean cargaHabitacion);
+    
+    // Consultar todos las Reservas
+    @Modifying
+    @Transactional
+    @Query(value="SELECT * FROM Reserva", nativeQuery = true)
+    List<Reserva> findAll();
 }
