@@ -17,11 +17,18 @@ CREATE TABLE ServicioConsumo (
     Capacidad INT NOT NULL,
     HorarioApertura TIMESTAMP NOT NULL,
     HorarioCierre TIMESTAMP NOT NULL,
+    numHabitacion INT,
     Hotel INT,
+    montoTotal FLOAT,
+    fechaConsumo DATE,
+    precio FLOAT NOT NULL,
+    cliente INT,
     TipoMusica VARCHAR(255),
     TipoTienda VARCHAR(255),
     TipoComida VARCHAR(255),
-    FOREIGN KEY (Hotel) REFERENCES Hotel(Id)
+    FOREIGN KEY (Hotel) REFERENCES Hotel(Id),
+    FOREIGN KEY (numHabitacion) REFERENCES Habitacion(NumHabitacion),
+    FOREIGN KEY (cliente) REFERENCES Cliente(Id)
 );
 
 -- Tabla Habitacion
