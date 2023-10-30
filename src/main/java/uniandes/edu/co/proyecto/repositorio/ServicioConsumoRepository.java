@@ -36,5 +36,17 @@ public interface ServicioConsumoRepository extends JpaRepository<ServicioConsumo
            "ORDER BY dinero_recolectado DESC"
            )
     List<Object[]> findDineroRecolectadoPorHabitacion(@Param("anioAnterior") LocalDate anioAnterior, @Param("anioActual") LocalDate anioActual);
+
+    // RFC2 - Mostrar los 20 servicios más populares.
+    @Query("SELECT id, COUNT(*) as cantidad_consumos " +
+           "FROM ServicioConsumo " +
+           "GROUP BY id " +
+           "ORDER BY cantidad_consumos DESC " +
+           "FETCH FIRST 20 ROWS ONLY"
+           )
+    List<Object[]> findServiciosMasPopulares(@Param("fechaInicio") LocalDate fechaInicio, @Param("fechaFin") LocalDate fechaFin);
+
 }
+
+
 
